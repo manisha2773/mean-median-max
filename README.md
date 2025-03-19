@@ -1,1 +1,21 @@
-# mean-median-max
+# mean-median-max FILTER
+
+EXP_6A MEDIAN FILTER
+
+A Median Filter is a noise-reduction technique that replaces each pixel with the median value of its neighborhood. It effectively removes salt-and-pepper noise while preserving edges and important image details.
+The code applies a Median Filter to an image for noise reduction, particularly effective against salt-and-pepper noise. Below is a breakdown of its functionality:
+Image Upload and Preprocessing: The user uploads an image using files.upload(), and OpenCV reads it in BGR format. Since Matplotlib displays images in RGB format, the image is converted using cv2.cvtColor().
+Median Filter Implementation: The function median_filter_func() applies the median filter using scipy.ndimage.median_filter(). The median filter replaces each pixel with the median value of its neighboring pixels within a kernel of a specified size (e.g., 3×3 or 5×5). This helps in removing noise while preserving edges, making it different from the mean filter, which tends to blur edges.
+Applying the Filter: The function is called with a kernel size of 3×3, filtering the image to reduce noise.
+Displaying the Images: The filtered image is again converted to RGB format for correct visualization. Using plt.subplot(), both the original and filtered images are displayed side by side for comparison.
+The Median Filter is widely used in image processing for noise removal, especially in medical imaging, document processing, and applications where preserving edges is essential
+
+EXP_6B MEAN FILTER
+
+A Mean Filter (Averaging Filter) is a simple spatial domain filter used for smoothing images. It works by replacing each pixel’s value with the average of its neighboring pixel values within a defined kernel (e.g., 3×3 or 5×5).The code applies a Mean Filter (Averaging Filter) to an image to reduce noise and smooth fine details. First, the image is uploaded and loaded using OpenCV, which reads it in BGR format. Since Matplotlib displays images in RGB format, the image is converted accordingly. The mean filter is implemented in the mean_filter() function, where a kernel (a small matrix) is created with uniform values. This kernel averages the pixel values in a defined neighborhood, effectively reducing noise and softening the image. The filtering is performed using OpenCV’s cv2.filter2D() function, which convolves the image with the mean filter kernel. After applying the filter, the result is again converted to RGB format for correct visualization. Finally, the original and filtered images are displayed side by side using Matplotlib’s plt.subplot() function to show the effects of smoothing. The mean filter effectively reduces noise but also blurs edges, making it useful for preprocessing tasks such as noise reduction and preparing images for further processing like edge detection. The strength of the smoothing effect depends on the kernel size, where larger kernels result in stronger blurring. This method is commonly used in image processing for denoising and smoothing applications.
+
+
+EXP_6C MAX FILTER
+
+A Max Filter is a noise-reduction technique that replaces each pixel with the maximum value in its neighborhood. It enhances bright regions, removes dark noise, and is useful for salt-and-pepper noise removal.The code applies a Max Filter to an image to enhance edges and remove small noise by replacing each pixel with the maximum value in its neighborhood. The image is first uploaded and read using OpenCV, which loads it in BGR format. Since Matplotlib requires RGB format, the image is converted accordingly. The Max Filter is implemented using OpenCV’s cv2.dilate() function, which applies a maximum operation over a defined kernel (neighborhood). This filter preserves bright regions while eliminating small dark spots, making it effective for noise removal and feature enhancement. The kernel size determines the level of filtering—larger kernels result in stronger effects. After applying the Max Filter, the processed image is converted back to RGB format for correct visualization. Finally, the original and filtered images are displayed side by side using Matplotlib’s plt.subplot() function. The Max Filter is commonly used in image processing for noise reduction, salt-and-pepper noise removal, and enhancing bright features while maintaining sharp edges. It is particularly useful in morphological operations, such as object segmentation and texture enhancement, where preserving high-intensity details is essential for accurate feature extraction.
+
